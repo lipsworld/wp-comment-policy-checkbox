@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Comments Policy Checkbox\n"
+"POT-Creation-Date: 2018-01-19 12:02+0100\n"
+"PO-Revision-Date: 2018-01-19 12:08+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Last-Translator: \n"
+"Language: es\n"
+"X-Poedit-SearchPath-0: wp-comments-policy-checkbox.php\n"
+
+#: wp-comments-policy-checkbox.php:39
+msgid "I have read and accept the "
+msgstr "He leido y acepto la "
+
+#: wp-comments-policy-checkbox.php:39
+msgid "Privacy Policy"
+msgstr "Política de Privacidad"
+
+#: wp-comments-policy-checkbox.php:53
+msgid "&laquo; Back"
+msgstr ""
+
+#: wp-comments-policy-checkbox.php:54
+msgid "Error: you must accept the Privacy Policy."
+msgstr "Error: debe aceptar la Política de Privacidad."
