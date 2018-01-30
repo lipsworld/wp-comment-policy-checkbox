@@ -81,14 +81,4 @@ function wpcpc_register_settings() {
 
 add_action( 'admin_init', 'wpcpc_register_settings' );
 
-
-function wpcpc_register_strings () {
-    if ( function_exists( 'pll_register_string' ) ) {
-        pll_register_string ( 'Read and accept', 'I have read and accept the ', 'wpcpc' );
-    } else {
-    }
-}
-
-add_action ( 'init','wpcpc_register_strings' );
-
- ?>
+?>
