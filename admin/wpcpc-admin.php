@@ -3,7 +3,7 @@
 /**
 * Creating option page
 */
-function wpcpc_options_page () {
+function wpcpc_add_options_page () {
 
     add_options_page (
         'Comments Policy Checkbox', //the title tags of the page
@@ -14,7 +14,7 @@ function wpcpc_options_page () {
     );
 }
 
-add_action('admin_menu','wpcpc_options_page');
+add_action('admin_menu','wpcpc_add_options_page');
 
 
 function wpcpc_render_options_page() { ?>
@@ -82,12 +82,13 @@ function wpcpc_register_settings() {
 add_action( 'admin_init', 'wpcpc_register_settings' );
 
 
-function register_strings () {
+function wpcpc_register_strings () {
     if ( function_exists( 'pll_register_string' ) ) {
         pll_register_string ( 'Read and accept', 'I have read and accept the ', 'wpcpc' );
     } else {
     }
 }
-add_action ( 'init','register_strings' );
+
+add_action ( 'init','wpcpc_register_strings' );
 
  ?>
