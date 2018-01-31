@@ -27,3 +27,7 @@ Add a required policy checkbox to any comment forms and a custom link to the pol
 
 = 0.1 =
 * First version, still in beta.
+
+== Theme compatibility ==
+
+The plugin creates a concrete HTML structure to print the checkbox. Not in all theme will be displayed correctly.
