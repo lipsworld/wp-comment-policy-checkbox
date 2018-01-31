@@ -25,6 +25,9 @@ Add a required policy checkbox to any comment forms and a custom link to the pol
 
 == Changelog ==
 
+= 0.1.1 =
+* Modified main file Description on head comment.
+
 = 0.1 =
 * First version, still in beta.
 

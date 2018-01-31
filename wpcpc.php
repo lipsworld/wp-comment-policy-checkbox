@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              http://franciscogodoy.es
- * @since             0.1
+ * @since             0.1.1
  * @package           Wpcpc
  *
  * @wordpress-plugin
  * Plugin Name:       WP Comment Policy Checkbox
  * Plugin URI:        wpcpc
  * Description:       Add a required policy checkbox to any comment forms and a custom link to the policy polity text opening in new tab.
- * Version:           0.1
+ * Version:           0.1.1
  * Author:            fcojgodoy
  * Author URI:        franciscogodoy.es
  * License:           GPL-2.0+
@@ -32,10 +32,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 0.1 and use SemVer - https://semver.org
+ * Start at version 0.1.1 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '0.1' );
+define( 'PLUGIN_NAME_VERSION', '0.1.1' );
 
 
 /**
