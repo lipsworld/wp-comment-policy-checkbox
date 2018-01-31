@@ -41,6 +41,7 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
  * Admin
+ *
  */
  if ( is_admin() ) {
     // We are in admin mode
@@ -48,12 +49,9 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
  }
 
 
-
-
 /**
 * Load the plugin text domain for translation.
 *
-* @since    1.0.0
 */
 function wpcpc_load_plugin_textdomain() {
 
@@ -68,21 +66,30 @@ function wpcpc_load_plugin_textdomain() {
 add_action( 'plugins_loaded', 'wpcpc_load_plugin_textdomain' );
 
 
-function wpcpc_custom_fields( $fields ) {
+/**
+* Create cistp, fields
+*
+*/
+function wpcpc_custom_fields($fields) {
 
 	// Multilingual strings
     $req = get_option( 'require_name_email' );
     $aria_req = ( $req ? " aria-required='true'" : '' );
 
-	$url = get_permalink ( get_option( 'wpcpc_option_name2' ) );
-	$read_and_accept = __( 'I have read and accept the ', 'wpcpc' );
+	if ( function_exists( 'pll_register_string' ) ) {
+		$url = get_permalink ( pll_get_post( get_option( 'wpcpc_policy_page_id' ) ) );
+		$read_and_accept = pll__( 'I have read and accept the ' );
+	} else {
+		$url = get_permalink ( get_option( 'wpcpc_policy_page_id' ) );
+		$read_and_accept = __( 'I have read and accept the ', 'wpcpc' );
+	}
 
     $fields[ 'policy' ] =
         '<p class="comment-form-policy">'.
             '<label for="policy">
                 <input name="policy" value="policy-key" class="comment-form-policy__input" type="checkbox" style="width:auto"' . $aria_req . '>
                 ' . $read_and_accept . '
-                <a href="' . esc_url( $url ) . '" target="_blanck" class="comment-form-policy__see-more-link">' . __( 'Privacy Policy', 'wpcpc' ) . '</a>
+                <a href="' . esc_url( $url ) . '" target="_blanck" class="comment-form-policy__see-more-link">' . __('Privacy Policy', 'wpcpc') . '</a>
                 <span class="comment-form-policy__required required">*</span>
             </label>
         </p>';
@@ -90,18 +97,25 @@ function wpcpc_custom_fields( $fields ) {
     return $fields;
 }
 
-add_filter( 'comment_form_default_fields', 'wpcpc_custom_fields' );
+add_filter('comment_form_default_fields', 'wpcpc_custom_fields');
 
 
-// Add the filter to check whether the comment meta data has been filled
-add_filter( 'preprocess_comment', 'wpcpc_verify_policy_check' );
-
+/**
+* Add the filter to check whether the comment meta data has been filled
+*
+*/
 function wpcpc_verify_policy_check( $polictydata ) {
-    if ( ! isset( $_POST[ 'policy' ] ) )
+    if ( ! isset( $_POST['policy'] ) )
 
-		$policy_check_error = __( 'Error: you must accept the Privacy Policy.', 'wpcpc' );
+		if ( function_exists( 'pll_register_string' ) ) {
+			$policy_check_error = pll__( 'Error: you must accept the Privacy Policy.' );
+		} else {
+			$policy_check_error = __( 'Error: you must accept the Privacy Policy.', 'wpcpc' );
+		}
 
-    	wp_die( $policy_check_error . '<p><a href="javascript:history.back()">' . __( '&laquo; Back') . '</a></p>' );
+    	wp_die( $policy_check_error . '<p><a href="javascript:history.back()">' . __('&laquo; Back') . '</a></p>');
 
     return $polictydata;
 }
+
+add_filter( 'preprocess_comment', 'wpcpc_verify_policy_check' );

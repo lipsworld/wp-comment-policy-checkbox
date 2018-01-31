@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Comments Policy Checkbox\n"
-"POT-Creation-Date: 2018-01-30 23:51+0100\n"
-"PO-Revision-Date: 2018-01-30 23:51+0100\n"
+"POT-Creation-Date: 2018-01-31 02:07+0100\n"
+"PO-Revision-Date: 2018-01-31 02:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -16,18 +16,22 @@ msgstr ""
 "X-Poedit-SearchPath-0: wpcpc.php\n"
 "X-Poedit-SearchPath-1: admin/wpcpc-admin.php\n"
 
-#: wpcpc.php:70
+#: admin/wpcpc-admin.php:42
+msgid "-- none --"
+msgstr "-- ninguna --"
+
+#: wpcpc.php:84
 msgid "I have read and accept the "
 msgstr "He leido y acepto la "
 
-#: wpcpc.php:77
+#: wpcpc.php:92
 msgid "Privacy Policy"
 msgstr "Política de Privacidad"
 
-#: wpcpc.php:91
+#: wpcpc.php:113
 msgid "Error: you must accept the Privacy Policy."
 msgstr "Error: debe aceptar la Política de Privacidad."
 
-#: wpcpc.php:93
+#: wpcpc.php:116
 msgid "&laquo; Back"
 msgstr ""
