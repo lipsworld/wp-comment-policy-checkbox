@@ -67,7 +67,7 @@ add_action( 'plugins_loaded', 'wpcpc_load_plugin_textdomain' );
 
 
 /**
-* Create cistp, fields
+* Create custom fields
 *
 */
 function wpcpc_custom_fields($fields) {
