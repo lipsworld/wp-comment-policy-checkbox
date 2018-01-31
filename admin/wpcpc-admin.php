@@ -36,13 +36,26 @@ function wpcpc_render_options_page() { ?>
                     </th>
                     <td>
                         <select name='wpcpc_policy_page_id'>
-                            <option></option>
+
+                            <?php if ( function_exists( 'pll_register_string' ) ) {
+
+                        			$empty_option_value = pll__( '-- none --' );
+
+                        		} else {
+
+                        			$empty_option_value = __( '-- none --', 'wpcpc' );
+
+                    		} ?>
+
+                            <option> <?php echo $empty_option_value ?> </option>
+
                             <?php $pages = get_pages( array( 'lang' => '' ) ); ?>
                             <?php if ( $pages ) { ?>
                                 <?php foreach ( $pages as $page ) { ?>
                                     <option value='<?php echo $page -> ID; ?>' <?php selected( get_option( 'wpcpc_policy_page_id' ), $page -> ID ); ?>><?php echo $page -> post_title; ?></option>
                                 <?php } ?>
                             <?php } ?>
+
                         </select>
                     </td>
                 </tr>
@@ -67,6 +80,8 @@ function wpcpc_register_settings() {
         'wpcpc_policy_page_id'
     );
 
+    add_option( 'wpcpc_policy_page_id', '1' );
+
 }
 
 add_action( 'admin_init', 'wpcpc_register_settings' );
@@ -82,6 +97,7 @@ function wpcpc_register_strings () {
 
         pll_register_string ( 'Read and accept', 'I have read and accept the ', 'wpcpc' );
         pll_register_string ( 'Policy accept check error', 'Error: you must accept the Privacy Policy.', 'wpcpc' );
+        pll_register_string ( 'Empty option value', '-- none --', 'wpcpc' );
     }
 
 }
