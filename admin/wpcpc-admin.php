@@ -2,6 +2,7 @@
 
 /**
 * Creating option page
+*
 */
 function wpcpc_add_options_page () {
 
@@ -17,6 +18,10 @@ function wpcpc_add_options_page () {
 add_action('admin_menu','wpcpc_add_options_page');
 
 
+/**
+* Rendering option page
+*
+*/
 function wpcpc_render_options_page() { ?>
     <div class='wrap'>
         <h2>My Plugin Page Title</h2>
@@ -53,6 +58,7 @@ function wpcpc_render_options_page() { ?>
 
 /**
 * Register settings
+*
 */
 function wpcpc_register_settings() {
 
@@ -73,7 +79,10 @@ function wpcpc_register_settings() {
 add_action( 'admin_init', 'wpcpc_register_settings' );
 
 
-
+/**
+* Register strings - Polylang Compatibility
+*
+*/
 function wpcpc_register_strings () {
 
     if ( function_exists( 'pll_register_string' ) ) {

@@ -41,6 +41,7 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
  * Admin
+ *
  */
  if ( is_admin() ) {
     // We are in admin mode
@@ -65,6 +66,10 @@ function wpcpc_load_plugin_textdomain() {
 add_action( 'plugins_loaded', 'wpcpc_load_plugin_textdomain' );
 
 
+/**
+* Create cistp, fields
+*
+*/
 function wpcpc_custom_fields($fields) {
 
 	// Multilingual strings
@@ -95,9 +100,10 @@ function wpcpc_custom_fields($fields) {
 add_filter('comment_form_default_fields', 'wpcpc_custom_fields');
 
 
-// Add the filter to check whether the comment meta data has been filled
-add_filter( 'preprocess_comment', 'wpcpc_verify_policy_check' );
-
+/**
+* Add the filter to check whether the comment meta data has been filled
+*
+*/
 function wpcpc_verify_policy_check( $polictydata ) {
     if ( ! isset( $_POST['policy'] ) )
 
@@ -111,3 +117,5 @@ function wpcpc_verify_policy_check( $polictydata ) {
 
     return $polictydata;
 }
+
+add_filter( 'preprocess_comment', 'wpcpc_verify_policy_check' );
