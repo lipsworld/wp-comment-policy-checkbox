@@ -64,15 +64,8 @@ function wpcpc_register_settings() {
 
     register_setting (
         'wpcpc_options_group',
-        'wpcpc_option_name'
-    );
-
-    register_setting (
-        'wpcpc_options_group',
         'wpcpc_policy_page_id'
     );
-
-    add_option ( 'wpcpc_option_name', 'This is my option value.');
 
 }
 
