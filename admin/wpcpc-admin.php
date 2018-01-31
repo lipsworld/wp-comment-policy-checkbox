@@ -18,6 +18,10 @@
 // add_action('admin_menu','wpcpc_add_options_page');
 
 
+/**
+* Creating setting field
+*
+*/
 function wpcpc_add_setting_field () {
 
     add_settings_field (
@@ -32,6 +36,7 @@ function wpcpc_add_setting_field () {
 }
 
 add_action('admin_menu','wpcpc_add_setting_field');
+
 
 /**
 * Rendering option page
