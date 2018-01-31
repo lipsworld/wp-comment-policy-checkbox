@@ -1,24 +1,6 @@
 <?php
 
 /**
-* Creating option page
-*
-*/
-// function wpcpc_add_options_page () {
-//
-//     add_options_page (
-//         'Comments Policy Checkbox', //the title tags of the page
-//         'Comments Policy', //the menu text
-//         'manage_options', //capability required
-//         __FILE__, //slug name
-//         'wpcpc_render_options_page' //function to output the page content
-//     );
-// }
-
-// add_action('admin_menu','wpcpc_add_options_page');
-
-
-/**
 * Creating setting field
 *
 */
