@@ -49,16 +49,21 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 
 /**
-* When the akismet option is updated, run the registration call.
+* Load the plugin text domain for translation.
 *
-* This should only be run when the option is updated from the Jetpack/WP.com
-* API call, and only if the new key is different than the old key.
-*
-* @param mixed  $old_value   The old option value.
-* @param mixed  $value       The new option value.
 */
+function wpcpc_load_plugin_textdomain() {
 
-add_filter('comment_form_default_fields', 'wpcpc_custom_fields');
+	load_plugin_textdomain(
+		'wpcpc',
+		false,
+		basename( dirname( __FILE__ ) ) . '/languages/'
+	);
+
+}
+
+add_action( 'plugins_loaded', 'wpcpc_load_plugin_textdomain' );
+
 
 function wpcpc_custom_fields($fields) {
 
@@ -67,10 +72,10 @@ function wpcpc_custom_fields($fields) {
     $aria_req = ( $req ? " aria-required='true'" : '' );
 
 	if ( function_exists( 'pll_register_string' ) ) {
-		$url = get_permalink ( pll_get_post( get_option( 'wpcpc_option_name2' ) ) );
+		$url = get_permalink ( pll_get_post( get_option( 'wpcpc_policy_page_id' ) ) );
 		$read_and_accept = pll__( 'I have read and accept the ' );
 	} else {
-		$url = get_permalink ( get_option( 'wpcpc_option_name2' ) );
+		$url = get_permalink ( get_option( 'wpcpc_policy_page_id' ) );
 		$read_and_accept = __( 'I have read and accept the ', 'wpcpc' );
 	}
 
@@ -86,6 +91,9 @@ function wpcpc_custom_fields($fields) {
 
     return $fields;
 }
+
+add_filter('comment_form_default_fields', 'wpcpc_custom_fields');
+
 
 // Add the filter to check whether the comment meta data has been filled
 add_filter( 'preprocess_comment', 'wpcpc_verify_policy_check' );

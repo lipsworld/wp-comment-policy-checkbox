@@ -27,23 +27,15 @@ function wpcpc_render_options_page() { ?>
             <table>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="wpcpc_option_name">Label</label>
+                        <label for="wpcpc_policy_page_id">Label</label>
                     </th>
                     <td>
-                        <input type="text" id="wpcpc_option_name" name="wpcpc_option_name" value="<?php echo get_option('wpcpc_option_name'); ?>" />
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">
-                        <label for="wpcpc_option_name2">Label</label>
-                    </th>
-                    <td>
-                        <select name='wpcpc_option_name2'>
+                        <select name='wpcpc_policy_page_id'>
                             <option></option>
                             <?php $pages = get_pages( array( 'lang' => '' ) ); ?>
                             <?php if ( $pages ) { ?>
                                 <?php foreach ( $pages as $page ) { ?>
-                                    <option value='<?php echo $page -> ID; ?>' <?php selected( get_option( 'wpcpc_option_name2' ), $page -> ID ); ?>><?php echo $page -> post_title; ?></option>
+                                    <option value='<?php echo $page -> ID; ?>' <?php selected( get_option( 'wpcpc_policy_page_id' ), $page -> ID ); ?>><?php echo $page -> post_title; ?></option>
                                 <?php } ?>
                             <?php } ?>
                         </select>
@@ -53,8 +45,7 @@ function wpcpc_render_options_page() { ?>
             <?php submit_button() ?>
         </form>
         <div class="">
-            <h1><?php echo get_option('wpcpc_option_name'); ?></h1>
-            <h1><?php echo get_option('wpcpc_option_name2'); ?></h1>
+            <h1><?php echo get_option('wpcpc_policy_page_id'); ?></h1>
         </div>
     </div>
 <?php }
@@ -72,7 +63,7 @@ function wpcpc_register_settings() {
 
     register_setting (
         'wpcpc_options_group',
-        'wpcpc_option_name2'
+        'wpcpc_policy_page_id'
     );
 
     add_option ( 'wpcpc_option_name', 'This is my option value.');
@@ -82,11 +73,15 @@ function wpcpc_register_settings() {
 add_action( 'admin_init', 'wpcpc_register_settings' );
 
 
+
 function wpcpc_register_strings () {
+
     if ( function_exists( 'pll_register_string' ) ) {
+
         pll_register_string ( 'Read and accept', 'I have read and accept the ', 'wpcpc' );
-    } else {
+        pll_register_string ( 'Policy accept check error', 'Error: you must accept the Privacy Policy.', 'wpcpc' );
     }
+
 }
 
 add_action ( 'init','wpcpc_register_strings' );
