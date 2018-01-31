@@ -4,19 +4,34 @@
 * Creating option page
 *
 */
-function wpcpc_add_options_page () {
+// function wpcpc_add_options_page () {
+//
+//     add_options_page (
+//         'Comments Policy Checkbox', //the title tags of the page
+//         'Comments Policy', //the menu text
+//         'manage_options', //capability required
+//         __FILE__, //slug name
+//         'wpcpc_render_options_page' //function to output the page content
+//     );
+// }
 
-    add_options_page (
-        'Comments Policy Checkbox', //the title tags of the page
-        'Comments Policy', //the menu text
-        'manage_options', //capability required
-        __FILE__, //slug name
-        'wpcpc_render_options_page' //function to output the page content
+// add_action('admin_menu','wpcpc_add_options_page');
+
+
+function wpcpc_add_setting_field () {
+
+    add_settings_field (
+        'myprefix_setting-id',
+        __( 'Comments policy checkbox', 'wpcpc'),
+        'wpcpc_render_options_page',
+        'discussion'
+        // 'myprefix_settings-section-name',
+        // array( 'label_for' => 'myprefix_setting-id' )
     );
+
 }
 
-add_action('admin_menu','wpcpc_add_options_page');
-
+add_action('admin_menu','wpcpc_add_setting_field');
 
 /**
 * Rendering option page
@@ -24,47 +39,36 @@ add_action('admin_menu','wpcpc_add_options_page');
 */
 function wpcpc_render_options_page() { ?>
     <div class='wrap'>
-        <h2>My Plugin Page Title</h2>
         <form method="post" action="options.php">
             <?php settings_fields( 'wpcpc_options_group' ); ?>
-            <h3>This is my option</h3>
-            <p>Some text here.</p>
-            <table>
-                <tr valign="top">
-                    <th scope="row">
-                        <label for="wpcpc_policy_page_id">Label</label>
-                    </th>
-                    <td>
-                        <select name='wpcpc_policy_page_id'>
+            <p> <?php echo __( 'The check box for reading and accepting the privacy policy in the comment forms is active. To deactivate it you must deactivate the WP Comment Policy Check plugin.', 'wpcpc') ?> </p>
 
-                            <?php if ( function_exists( 'pll_register_string' ) ) {
+            <p>
+                <?php echo __( 'The page with the privacy policy to which you will link the text of the checkbox will be: ', 'wpcpc') ?>
+                <select name='wpcpc_policy_page_id'>
 
-                        			$empty_option_value = pll__( '-- none --' );
+                    <?php if ( function_exists( 'pll_register_string' ) ) {
 
-                        		} else {
+                        $empty_option_value = pll__( '-- none --' );
 
-                        			$empty_option_value = __( '-- none --', 'wpcpc' );
+                    } else {
 
-                    		} ?>
+                        $empty_option_value = __( '-- none --', 'wpcpc' );
 
-                            <option> <?php echo $empty_option_value ?> </option>
+                    } ?>
 
-                            <?php $pages = get_pages( array( 'lang' => '' ) ); ?>
-                            <?php if ( $pages ) { ?>
-                                <?php foreach ( $pages as $page ) { ?>
-                                    <option value='<?php echo $page -> ID; ?>' <?php selected( get_option( 'wpcpc_policy_page_id' ), $page -> ID ); ?>><?php echo $page -> post_title; ?></option>
-                                <?php } ?>
-                            <?php } ?>
+                    <option> <?php echo $empty_option_value ?> </option>
 
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <?php submit_button() ?>
+                    <?php $pages = get_pages( array( 'lang' => '' ) ); ?>
+                    <?php if ( $pages ) { ?>
+                        <?php foreach ( $pages as $page ) { ?>
+                            <option value='<?php echo $page -> ID; ?>' <?php selected( get_option( 'wpcpc_policy_page_id' ), $page -> ID ); ?>><?php echo $page -> post_title; ?></option>
+                        <?php } ?>
+                    <?php } ?>
+
+                </select>
+            </p>
         </form>
-        <div class="">
-            <h1><?php echo get_option('wpcpc_policy_page_id'); ?></h1>
-        </div>
     </div>
 <?php }
 
