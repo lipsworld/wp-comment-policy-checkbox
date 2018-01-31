@@ -11,6 +11,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Add a required policy checkbox to any comment forms and a custom link to the policy polity text opening in new tab.
 
+== Description ==
+
+Add a required policy checkbox to any comment forms and a custom link to the policy polity text opening in new tab.
+Features:
+  - Internationalized
+  - Compatible with Polylang
+  - Translated to `es_ES` and `ca`
+
 == Installation ==
 
 1. Upload `wpcpc` folder to the `/wp-content/plugins/` directory or install from 'Plugins' menu in WordPress.
