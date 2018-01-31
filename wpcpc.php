@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              http://franciscogodoy.es
- * @since             1.0.0
+ * @since             0.1
  * @package           Wpcpc
  *
  * @wordpress-plugin
@@ -17,7 +17,7 @@
  * Plugin URI:        wpcpc
  * Description:       Add a required policy checkbox to any comment forms width
  *                    custom link.
- * Version:           1.0.0
+ * Version:           0.1
  * Author:            fcojgodoy
  * Author URI:        franciscogodoy.es
  * License:           GPL-2.0+
@@ -33,10 +33,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Start at version 0.1 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME_VERSION', '0.1' );
 
 
 /**
