@@ -7,7 +7,7 @@
  * Plugin Name:       WP Comment Policy Checkbox
  * Plugin URI:        wpcpc
  * Description:       Add a required policy checkbox to any comment forms and a custom link to the policy polity text opening in new tab.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Author:            fcojgodoy
  * Author URI:        franciscogodoy.es
  * License:           GPL-2.0+

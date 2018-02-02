@@ -33,6 +33,9 @@ Features:
 
 == Changelog ==
 
+= 0.1.2 =
+* Fix generic define names.
+
 = 0.1.1 =
 * Modified main file Description on head comment.
 
