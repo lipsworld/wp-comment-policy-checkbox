@@ -33,6 +33,12 @@ Features:
 
 == Changelog ==
 
+= 0.1.4 =
+* Fix file names.
+
+= 0.1.3 =
+* Fix Internationalization.
+
 = 0.1.2 =
 * Fix generic define names.
 
