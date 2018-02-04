@@ -4,7 +4,7 @@ Donate link: franciscogodoy.es
 Tags: comments, policy, polity, checkbox
 Requires at least: 3.0.1
 Tested up to: 4.9.2
-Stable tag: 4.9.2
+Stable tag: trunk
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,6 @@ Add a required policy checkbox to any comment forms and a custom link to the pol
 Add a required policy checkbox to any comment forms and a custom link to the policy polity text opening in new tab.
 Features:
   - Internationalized
-  - Compatible with Polylang
   - Translated to `es_ES` and `ca`
 
 == Installation ==
@@ -32,6 +31,9 @@ Features:
 2. Error message if the policy checkbox is not checked.
 
 == Changelog ==
+
+= 0.1.5 =
+* Change languages file names.
 
 = 0.1.4 =
 * Fix file names.
